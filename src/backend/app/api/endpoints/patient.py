@@ -1,5 +1,5 @@
-from typing import List
-from fastapi import APIRouter, Depends, HTTPException, status
+from typing import List, Optional
+from fastapi import APIRouter, Depends, HTTPException, status, Query  # Queryをインポート
 from sqlalchemy.ext.asyncio import AsyncSession
 from uuid import UUID
 
@@ -116,7 +116,7 @@ async def delete_patient(
 async def list_patients(
     *,
     db: AsyncSession = Depends(get_db_session),
-    pagination: tuple[int, int] = Depends(get_pagination_params)
+    pagination: dict[str, int] = Depends(get_pagination_params)  # 整数として取得
 ) -> PaginatedResponse:
     """
     患者の一覧を取得します。
@@ -124,8 +124,8 @@ async def list_patients(
     - **skip**: スキップする件数
     - **limit**: 取得する最大件数
     """
-    skip, limit = pagination
-    patients = await patient.get_multi(db, skip=skip, limit=limit)
+    skip, limit = pagination["skip"], pagination["limit"]
+    patients = await patient.get_multi(db, skip=skip, limit=limit)  # 引数を正しく渡す
     total = len(patients)  # 本来はcount queryを使用すべき
     return PaginatedResponse(
         total=total,

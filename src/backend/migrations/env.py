@@ -1,4 +1,6 @@
 import asyncio
+import sys
+import os
 from logging.config import fileConfig
 
 from sqlalchemy import pool
@@ -7,8 +9,11 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
+# プロジェクトのルートディレクトリを追加
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 # モデルのメタデータをインポート
-from app.models import Base
+from app.database import Base
 from app.database import SQLALCHEMY_DATABASE_URL
 
 # this is the Alembic Config object, which provides

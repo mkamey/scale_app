@@ -1,8 +1,9 @@
-from app.models.base import AssessmentStatus, TimestampMixin, GUID, generate_uuid
+from app.models.base import Base
 from app.models.assessment import Patient, Assessment, Question, Option
 from app.models.result import AssessmentResult, AnswerDetail
 
 __all__ = [
+    "Base",
     "AssessmentStatus",
     "TimestampMixin",
     "GUID",
