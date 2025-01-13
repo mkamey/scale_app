@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景の角丸の長方形 -->
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4F46E5; #7C3AED; #4F46E5" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1">
+        <animate attributeName="stop-color" values="#7C3AED; #4F46E5; #7C3AED" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+  
+  <rect x="10" y="10" width="780" height="180" rx="20" ry="20" fill="url(#headerGradient)">
+    <animate attributeName="rx" values="20;25;20" dur="3s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- メインテキスト -->
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    Scale App
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+  </text>
+  
+  <!-- サブテキスト -->
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    Psychological Assessment Management System
+  </text>
+</svg>
